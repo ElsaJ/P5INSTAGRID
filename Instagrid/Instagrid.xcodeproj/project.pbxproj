@@ -54,14 +54,46 @@
 		E5D7EA20218B673C004769F5 /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
-				E5D7EA21218B673C004769F5 /* AppDelegate.swift */,
-				E5D7EA23218B673C004769F5 /* ViewController.swift */,
-				E5D7EA25218B673C004769F5 /* Main.storyboard */,
-				E5D7EA28218B673F004769F5 /* Assets.xcassets */,
-				E5D7EA2A218B673F004769F5 /* LaunchScreen.storyboard */,
-				E5D7EA2D218B673F004769F5 /* Info.plist */,
+				E5D7EA33218C5834004769F5 /* Model */,
+				E5D7EA34218C584C004769F5 /* Controller */,
+				E5D7EA35218C5854004769F5 /* View */,
+				E5D7EA36218C58BE004769F5 /* Supporting files */,
 			);
 			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		E5D7EA33218C5834004769F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5D7EA34218C584C004769F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7EA23218B673C004769F5 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E5D7EA35218C5854004769F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7EA25218B673C004769F5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5D7EA36218C58BE004769F5 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7EA28218B673F004769F5 /* Assets.xcassets */,
+				E5D7EA21218B673C004769F5 /* AppDelegate.swift */,
+				E5D7EA2D218B673F004769F5 /* Info.plist */,
+				E5D7EA2A218B673F004769F5 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
