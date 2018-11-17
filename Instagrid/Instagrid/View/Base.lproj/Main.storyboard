@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yII-Jb-Y6g">
-                                <rect key="frame" x="8" y="36" width="359" height="77.5"/>
+                                <rect key="frame" x="8" y="36" width="359" height="34"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -67,19 +67,16 @@
                                     <constraint firstAttribute="width" secondItem="WT9-Cj-PbC" secondAttribute="height" multiplier="1:1" id="h2U-nd-NEx"/>
                                 </constraints>
                             </view>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="iTn-Xx-w98">
-                                <rect key="frame" x="179" y="120" width="17" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="GCx-Iw-pfH"/>
-                                    <constraint firstAttribute="width" constant="17" id="iw4-00-O5s"/>
-                                </constraints>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-sC-bG5">
+                                <rect key="frame" x="180" y="120" width="15" height="10"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.71777290105819702" green="0.83855408430099487" blue="0.90139484405517578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="WT9-Cj-PbC" firstAttribute="leading" secondItem="ueg-tj-nN3" secondAttribute="trailing" constant="17.5" id="1Ui-fD-PPF"/>
-                            <constraint firstItem="gMB-qL-0Ke" firstAttribute="top" secondItem="iTn-Xx-w98" secondAttribute="bottom" constant="38" id="3cI-0R-7Ee"/>
+                            <constraint firstItem="kgT-sC-bG5" firstAttribute="top" secondItem="yII-Jb-Y6g" secondAttribute="bottom" constant="50" id="6Zj-1H-Ioj"/>
+                            <constraint firstItem="kgT-sC-bG5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Egj-jd-grw"/>
                             <constraint firstItem="Cci-Kc-2XW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="FqZ-uZ-qLW"/>
                             <constraint firstItem="aYI-LS-755" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HXc-Xg-QXh"/>
                             <constraint firstItem="ueg-tj-nN3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IOe-cB-8H5"/>
@@ -90,17 +87,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WT9-Cj-PbC" secondAttribute="trailing" constant="50" id="S8q-Ec-Fh4"/>
                             <constraint firstItem="WT9-Cj-PbC" firstAttribute="top" secondItem="gMB-qL-0Ke" secondAttribute="bottom" constant="70" id="Svo-ys-nzr"/>
                             <constraint firstItem="Cci-Kc-2XW" firstAttribute="top" secondItem="gMB-qL-0Ke" secondAttribute="bottom" constant="70" id="UJ6-5H-20K"/>
-                            <constraint firstItem="iTn-Xx-w98" firstAttribute="firstBaseline" secondItem="yII-Jb-Y6g" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="Yg7-6C-cDa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ueg-tj-nN3" secondAttribute="bottom" constant="43" id="cvS-vi-0Fk"/>
                             <constraint firstItem="gMB-qL-0Ke" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dPy-gb-e25"/>
                             <constraint firstItem="yII-Jb-Y6g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="e0C-NO-IE1"/>
-                            <constraint firstItem="iTn-Xx-w98" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g6r-r3-ng8"/>
                             <constraint firstItem="yII-Jb-Y6g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="gHl-HI-Gkt"/>
                             <constraint firstItem="gMB-qL-0Ke" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="px6-Bb-aqN"/>
                             <constraint firstItem="yII-Jb-Y6g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="w8n-jE-9eO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gMB-qL-0Ke" secondAttribute="trailing" constant="37" id="wbh-bF-iFm"/>
                             <constraint firstItem="gMB-qL-0Ke" firstAttribute="top" secondItem="aYI-LS-755" secondAttribute="bottom" constant="15" id="woX-nd-ZJe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WT9-Cj-PbC" secondAttribute="bottom" constant="43" id="x8U-s8-xNp"/>
+                            <constraint firstItem="aYI-LS-755" firstAttribute="top" secondItem="kgT-sC-bG5" secondAttribute="bottom" constant="21" id="yYj-g7-OgI"/>
                             <constraint firstItem="aYI-LS-755" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="zcR-Gm-sL7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -112,6 +108,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron" width="45" height="45"/>
+        <image name="chevron" width="15" height="10"/>
     </resources>
 </document>
