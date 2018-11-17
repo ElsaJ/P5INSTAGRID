@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E524B06F21A05CBF00FF80D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA28218B673F004769F5 /* Assets.xcassets */; };
 		E5D7EA22218B673C004769F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7EA21218B673C004769F5 /* AppDelegate.swift */; };
 		E5D7EA24218B673C004769F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7EA23218B673C004769F5 /* ViewController.swift */; };
 		E5D7EA27218B673C004769F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA25218B673C004769F5 /* Main.storyboard */; };
-		E5D7EA29218B673F004769F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA28218B673F004769F5 /* Assets.xcassets */; };
 		E5D7EA2C218B673F004769F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA2A218B673F004769F5 /* LaunchScreen.storyboard */; };
 		E5D7EA38218C596E004769F5 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA37218C596E004769F5 /* Delm-Medium.otf */; };
 		E5D7EA3A218C5976004769F5 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA39218C5976004769F5 /* ThirstySoftRegular.otf */; };
@@ -164,10 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D7EA2C218B673F004769F5 /* LaunchScreen.storyboard in Resources */,
-				E5D7EA29218B673F004769F5 /* Assets.xcassets in Resources */,
 				E5D7EA3A218C5976004769F5 /* ThirstySoftRegular.otf in Resources */,
 				E5D7EA38218C596E004769F5 /* Delm-Medium.otf in Resources */,
 				E5D7EA27218B673C004769F5 /* Main.storyboard in Resources */,
+				E524B06F21A05CBF00FF80D0 /* Assets.xcassets in Resources */,
 				E5D7EA3C218C798D004769F5 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
