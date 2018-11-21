@@ -21,6 +21,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -46,17 +47,33 @@
                                 </constraints>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="Layout 3" translatesAutoresizingMaskIntoConstraints="NO" id="gIT-cR-S5m">
-                                <rect key="frame" x="246" y="577" width="80" height="82"/>
+                                <rect key="frame" x="246" y="567" width="80" height="80"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="Layout 1" translatesAutoresizingMaskIntoConstraints="NO" id="VFu-eX-3Zd">
-                                <rect key="frame" x="48" y="577" width="80" height="80"/>
+                                <rect key="frame" x="48" y="567" width="80" height="80"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="Layout 2" translatesAutoresizingMaskIntoConstraints="NO" id="F6n-m9-1PW">
-                                <rect key="frame" x="147.5" y="577" width="80" height="82"/>
+                                <rect key="frame" x="147.5" y="567" width="80" height="80"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-sC-bG5">
                                 <rect key="frame" x="180" y="132.5" width="15" height="10"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="BZJ-VZ-Aac" appends="YES" id="dZj-FZ-roR"/>
+                                </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mv-EO-eND">
+                                <rect key="frame" x="48" y="567" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0L-iG-RlJ">
+                                <rect key="frame" x="148" y="567" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5F-v3-4hg">
+                                <rect key="frame" x="246" y="567" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.71777290105819702" green="0.83855408430099487" blue="0.90139484405517578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -72,12 +89,12 @@
                             <constraint firstItem="gIT-cR-S5m" firstAttribute="top" secondItem="F6n-m9-1PW" secondAttribute="top" id="Dm7-kA-CNu"/>
                             <constraint firstItem="F6n-m9-1PW" firstAttribute="leading" secondItem="VFu-eX-3Zd" secondAttribute="trailing" constant="19.5" id="FnH-Qu-RPi"/>
                             <constraint firstItem="h6L-sw-00O" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jah-gP-Zql"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VFu-eX-3Zd" secondAttribute="bottom" constant="10" id="UgR-3R-mod"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VFu-eX-3Zd" secondAttribute="bottom" constant="20" id="UgR-3R-mod"/>
                             <constraint firstItem="kgT-sC-bG5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yII-Jb-Y6g" secondAttribute="bottom" constant="5" id="cWE-cF-lUU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gIT-cR-S5m" secondAttribute="bottom" constant="8" id="dRh-a9-z91"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gIT-cR-S5m" secondAttribute="bottom" constant="20" id="dRh-a9-z91"/>
                             <constraint firstItem="gIT-cR-S5m" firstAttribute="leading" secondItem="F6n-m9-1PW" secondAttribute="trailing" constant="18.5" id="f7x-gF-abD"/>
                             <constraint firstItem="aYI-LS-755" firstAttribute="top" secondItem="kgT-sC-bG5" secondAttribute="bottom" constant="5" id="fVL-sC-k71"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F6n-m9-1PW" secondAttribute="bottom" constant="8" id="jCl-VK-EG4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="F6n-m9-1PW" secondAttribute="bottom" constant="20" id="jCl-VK-EG4"/>
                             <constraint firstItem="yII-Jb-Y6g" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="nOf-Rz-bPA"/>
                             <constraint firstItem="h6L-sw-00O" firstAttribute="top" secondItem="aYI-LS-755" secondAttribute="bottom" constant="5" id="nt1-Ob-hBq"/>
                             <constraint firstItem="aYI-LS-755" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vhJ-Rt-bbE"/>
@@ -87,7 +104,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="BZJ-VZ-Aac"/>
             </objects>
             <point key="canvasLocation" x="-1007.2" y="154.27286356821591"/>
         </scene>
