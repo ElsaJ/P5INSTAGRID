@@ -257,26 +257,52 @@
                                     <outletCollection property="gestureRecognizers" destination="BZJ-VZ-Aac" appends="YES" id="dZj-FZ-roR"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah" customClass="ImagesOrganizer" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGB-dI-myb">
                                         <rect key="frame" x="15" y="16" width="135" height="135"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbv-Sl-3uQ">
+                                                <rect key="frame" x="43.5" y="43.5" width="48" height="48"/>
+                                                <state key="normal" image="Combined Shape"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="hbv-Sl-3uQ" firstAttribute="centerY" secondItem="DGB-dI-myb" secondAttribute="centerY" id="Eja-JA-9x0"/>
+                                            <constraint firstItem="hbv-Sl-3uQ" firstAttribute="centerX" secondItem="DGB-dI-myb" secondAttribute="centerX" id="VDb-lF-0rR"/>
                                             <constraint firstAttribute="width" secondItem="DGB-dI-myb" secondAttribute="height" multiplier="1:1" id="hxJ-du-QZg"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFH-oH-XSG">
                                         <rect key="frame" x="166" y="16" width="135" height="135"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNj-km-bh1">
+                                                <rect key="frame" x="43.5" y="43.5" width="48" height="48"/>
+                                                <state key="normal" image="Combined Shape"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hFH-oH-XSG" secondAttribute="height" multiplier="1:1" id="3aM-hR-4lm"/>
+                                            <constraint firstItem="vNj-km-bh1" firstAttribute="centerY" secondItem="hFH-oH-XSG" secondAttribute="centerY" id="u0s-cU-ZQg"/>
+                                            <constraint firstItem="vNj-km-bh1" firstAttribute="centerX" secondItem="hFH-oH-XSG" secondAttribute="centerX" id="uMz-cK-Ylf"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwF-7I-VpC">
                                         <rect key="frame" x="15" y="169" width="286" height="131"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aY4-Ac-dRZ">
+                                                <rect key="frame" x="119" y="41.5" width="48" height="48"/>
+                                                <state key="normal" image="Combined Shape"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="aY4-Ac-dRZ" firstAttribute="centerX" secondItem="HwF-7I-VpC" secondAttribute="centerX" id="D5C-bP-D4X"/>
+                                            <constraint firstItem="aY4-Ac-dRZ" firstAttribute="centerY" secondItem="HwF-7I-VpC" secondAttribute="centerY" id="Shl-9D-ea8"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1034288332" green="0.44360113140000001" blue="0.63487958909999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -296,6 +322,14 @@
                                     <constraint firstItem="HwF-7I-VpC" firstAttribute="leading" secondItem="JSg-88-9ah" secondAttribute="leading" constant="15" id="roH-4O-IJd"/>
                                     <constraint firstAttribute="bottom" secondItem="DGB-dI-myb" secondAttribute="bottom" constant="164" id="x77-hd-Ls7"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="imageOne" destination="DGB-dI-myb" id="awv-9S-6UF"/>
+                                    <outlet property="imageThree" destination="HwF-7I-VpC" id="zcq-nd-PaT"/>
+                                    <outlet property="imageTwo" destination="hFH-oH-XSG" id="rkn-FU-KNH"/>
+                                    <outlet property="shapeOne" destination="hbv-Sl-3uQ" id="7XT-lD-FgD"/>
+                                    <outlet property="shapeThree" destination="aY4-Ac-dRZ" id="MYB-me-MNO"/>
+                                    <outlet property="shapeTwo" destination="vNj-km-bh1" id="ppf-UT-sAU"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.71777290105819702" green="0.83855408430099487" blue="0.90139484405517578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -722,6 +756,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Combined Shape" width="48" height="48"/>
         <image name="Layout 1" width="80" height="80"/>
         <image name="Layout 2" width="80" height="80"/>
         <image name="Layout 3" width="80" height="80"/>
