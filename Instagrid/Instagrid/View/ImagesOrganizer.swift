@@ -9,7 +9,35 @@
 import UIKit
 
 class ImagesOrganizer: UIView {
-
+    
+    enum Style {
+        case standard, reverse, square
+    }
+    
+    var style: Style = .standard {
+        didSet {
+            setStyle(_style: style)
+        }
+    }
+    
+    private func setStyle(_style: Style) {
+        switch style {
+        case .standard:
+            shapeOne.isHidden = false
+            shapeTwo.isHidden = false
+            shapeThree.isHidden = false
+        case .reverse:
+            shapeOne.isHidden = false
+            shapeTwo.isHidden = false
+            shapeThree.isHidden = false
+        case .square:
+            shapeOne.isHidden = false
+            shapeTwo.isHidden = false
+            shapeThree.isHidden = false
+            
+        }
+    }
+    
     @IBOutlet private var imageOne: UIView!
     @IBOutlet private var imageTwo: UIView!
     @IBOutlet private var imageThree: UIView!
