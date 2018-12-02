@@ -748,6 +748,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="ImagesOrganizer" destination="JSg-88-9ah" id="Qtl-Du-ncM"/>
+                        <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
+                        <outlet property="selectedStandard" destination="C9h-Rc-VIV" id="tFF-AW-nha"/>
+                        <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
+                        <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="BZJ-VZ-Aac"/>
