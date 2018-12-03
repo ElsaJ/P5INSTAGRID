@@ -20,43 +20,36 @@ class ImagesOrganizer: UIView {
         }
     }
     
+    let firstView = UIView()
+    let secondView = UIView()
+    let thirdView = UIView()
+    let fourthView = UIView()
+    
     private func setStyle(_style: Style) {
         switch style {
         case .standard:
-            imageOne.frame = CGRect(x: 15, y: 16, width: imageOne.frame.size.width, height: imageOne.frame.size.height)
-            imageTwo.frame = CGRect(x: 166, y: 16, width: imageTwo.frame.size.width, height: imageTwo.frame.size.height)
-            imageThree.frame = CGRect(x: 15, y: 169, width: imageThree.frame.size.width, height: imageThree.frame.size.height)
-            shapeOne.isHidden = false
-            shapeTwo.isHidden = false
-            shapeThree.isHidden = false
+            firstLine.addArrangedSubview(firstView)
+            firstLine.addArrangedSubview(secondView)
+            secondLine.addArrangedSubview(thirdView)
         case .reverse:
-            imageOne.frame = CGRect(x: 15, y: 169, width: imageOne.frame.size.width, height: imageOne.frame.size.height)
-            imageTwo.frame = CGRect(x: 166, y: 169, width: imageTwo.frame.size.width, height: imageTwo.frame.size.height)
-            imageThree.frame = CGRect(x: 15, y: 16, width: imageThree.frame.size.width, height: imageThree.frame.size.height)
-            shapeOne.isHidden = false
-            shapeTwo.isHidden = false
-            shapeThree.isHidden = false
+             firstLine.addArrangedSubview(thirdView)
+             secondLine.addArrangedSubview(firstView)
+             secondLine.addArrangedSubview(secondView)
         case .square:
-            imageOne.frame = CGRect(x: 15, y: 16, width: imageOne.frame.size.width, height: imageOne.frame.size.height)
-            imageTwo.frame = CGRect(x: 166, y: 16, width: imageTwo.frame.size.width, height: imageTwo.frame.size.height)
-            imageThree.frame = CGRect(x: 15, y: 169, width: imageOne.frame.size.width, height: imageOne.frame.size.height)
-            shapeOne.isHidden = false
-            shapeTwo.isHidden = false
-            shapeThree.isHidden = false
-            
+            firstLine.addArrangedSubview(firstView)
+            firstLine.addArrangedSubview(secondView)
+            secondLine.addArrangedSubview(thirdView)
+            secondLine.addArrangedSubview(fourthView)
         }
     }
     
-    internal func addSubview(_ view: ImagesOrganizer) {
-        
+    private func setBackgroundColors() {
+        firstView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        secondView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        thirdView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        fourthView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     }
-        
-
     
-    @IBOutlet private var imageOne: UIView!
-    @IBOutlet private var imageTwo: UIView!
-    @IBOutlet private var imageThree: UIView!
-    @IBOutlet private var shapeOne: UIButton!
-    @IBOutlet private var shapeTwo: UIButton!
-    @IBOutlet private var shapeThree: UIButton!
+    @IBOutlet private var firstLine: UIStackView!
+    @IBOutlet private var secondLine: UIStackView!
 }
