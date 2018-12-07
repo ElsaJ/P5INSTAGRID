@@ -140,6 +140,9 @@
                                         <exclude reference="xtv-a4-Ka7"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didTapReverseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2s-jR-rpP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azs-9y-15N">
                                 <rect key="frame" x="149" y="556" width="80" height="80"/>
@@ -169,6 +172,9 @@
                                         <exclude reference="gfv-4S-rnE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didTapStandardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ezg-bc-VyW"/>
+                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="chevron landscape" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-yn-poN">
                                 <rect key="frame" x="88.5" y="168" width="10" height="15"/>
@@ -198,6 +204,9 @@
                                         <exclude reference="t1m-gu-sHw"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="didTapSquareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DBF-X9-g23"/>
+                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="C9h-Rc-VIV">
                                 <rect key="frame" x="148.5" y="556" width="80" height="80"/>

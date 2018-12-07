@@ -21,6 +21,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func didTapStandardButton(_ sender: UIButton) {
+        ImagesOrganizer.style = .standard
+    }
+    
+    @IBAction func didTapReverseButton(_ sender: UIButton) {
+       setStyle()
+    }
+    
+    @IBAction func didTapSquareButton(_ sender: UIButton) {
+        ImagesOrganizer.style = .square
+    }
+    
+    func setStyle() {
+         ImagesOrganizer.style = .reverse
+    }
 }
 
