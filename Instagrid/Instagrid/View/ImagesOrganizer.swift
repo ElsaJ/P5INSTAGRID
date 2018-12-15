@@ -23,10 +23,10 @@ class ImagesOrganizer: UIView {
         }
     }
     
-    let firstView = UIButton()
-    let secondView = UIButton()
-    let thirdView = UIButton()
-    let fourthView = UIButton()
+    let firstButton = UIButton()
+    let secondButton = UIButton()
+    let thirdButton = UIButton()
+    let fourthButton = UIButton()
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -35,40 +35,43 @@ class ImagesOrganizer: UIView {
     }
     
     private func setStyle(_style: Style) {
-        firstView.removeFromSuperview()
-        secondView.removeFromSuperview()
-        thirdView.removeFromSuperview()
-        fourthView.removeFromSuperview()
+        firstButton.removeFromSuperview()
+        secondButton.removeFromSuperview()
+        thirdButton.removeFromSuperview()
+        fourthButton.removeFromSuperview()
        
         
         switch style {
         case .standard:
-            firstLine.addArrangedSubview(firstView)
-            firstLine.addArrangedSubview(secondView)
-            secondLine.addArrangedSubview(thirdView)
+            firstLine.addArrangedSubview(firstButton)
+            firstLine.addArrangedSubview(secondButton)
+            secondLine.addArrangedSubview(thirdButton)
         case .reverse:
-             firstLine.addArrangedSubview(thirdView)
-             secondLine.addArrangedSubview(firstView)
-             secondLine.addArrangedSubview(secondView)
+            firstLine.addArrangedSubview(thirdButton)
+            secondLine.addArrangedSubview(firstButton)
+            secondLine.addArrangedSubview(secondButton)
         case .square:
-            firstLine.addArrangedSubview(firstView)
-            firstLine.addArrangedSubview(secondView)
-            secondLine.addArrangedSubview(thirdView)
-            secondLine.addArrangedSubview(fourthView)
+            firstLine.addArrangedSubview(firstButton)
+            firstLine.addArrangedSubview(secondButton)
+            secondLine.addArrangedSubview(thirdButton)
+            secondLine.addArrangedSubview(fourthButton)
         }
     }
     
     private func setBackgroundColors() {
-        firstView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        secondView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        thirdView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        fourthView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        firstButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        secondButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        thirdButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        fourthButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     private func setShape() {
-        firstView.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
-        firstView.imageView?.contentMode = .scaleAspectFit
-        firstView.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        firstButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
+        secondButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
+        thirdButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
+        fourthButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
+        thirdButton.imageView?.contentMode = .topLeft
+        firstButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
    
 }

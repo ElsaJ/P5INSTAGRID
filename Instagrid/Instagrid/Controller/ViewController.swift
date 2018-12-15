@@ -10,31 +10,37 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var ImagesOrganizer: ImagesOrganizer!
+    @IBOutlet weak var imagesOrganizer: ImagesOrganizer!
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
-    @IBOutlet weak var selectedStandard: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
+    
 
     @IBAction func didTapStandardButton(_ sender: UIButton) {
-        ImagesOrganizer.style = .standard
+        imagesOrganizer.style = .standard
+        standardButton.setImage(UIImage(named: "Selected"), for: .selected)
+        
     }
     
     @IBAction func didTapReverseButton(_ sender: UIButton) {
-       setStyle()
+       imagesOrganizer.style = .reverse
+       reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
     }
     
     @IBAction func didTapSquareButton(_ sender: UIButton) {
-        ImagesOrganizer.style = .square
+        imagesOrganizer.style = .square
+        squareButton.setImage(UIImage(named: "Selected"), for: .selected)
     }
     
-    func setStyle() {
-         ImagesOrganizer.style = .reverse
+    private func setSelectedImage() {
+        
     }
+    
 }
 
