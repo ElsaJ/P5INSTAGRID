@@ -10,6 +10,9 @@ import UIKit
 
 class ImagesOrganizer: UIView {
     
+    @IBOutlet private var firstLine: UIStackView!
+    @IBOutlet private var secondLine: UIStackView!
+    
     enum Style {
         case standard, reverse, square
     }
@@ -20,12 +23,24 @@ class ImagesOrganizer: UIView {
         }
     }
     
-    let firstView = UIView()
-    let secondView = UIView()
-    let thirdView = UIView()
-    let fourthView = UIView()
+    let firstView = UIButton()
+    let secondView = UIButton()
+    let thirdView = UIButton()
+    let fourthView = UIButton()
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        setBackgroundColors()
+        setShape()
+    }
     
     private func setStyle(_style: Style) {
+        firstView.removeFromSuperview()
+        secondView.removeFromSuperview()
+        thirdView.removeFromSuperview()
+        fourthView.removeFromSuperview()
+       
+        
         switch style {
         case .standard:
             firstLine.addArrangedSubview(firstView)
@@ -44,12 +59,16 @@ class ImagesOrganizer: UIView {
     }
     
     private func setBackgroundColors() {
-        firstView.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        secondView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-        thirdView.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        fourthView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        firstView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        secondView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        thirdView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        fourthView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
-    @IBOutlet private var firstLine: UIStackView!
-    @IBOutlet private var secondLine: UIStackView!
+    private func setShape() {
+        firstView.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
+        firstView.imageView?.contentMode = .scaleAspectFit
+        firstView.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
+   
 }

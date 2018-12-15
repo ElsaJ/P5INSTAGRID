@@ -269,12 +269,12 @@
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah" customClass="ImagesOrganizer" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="71C-rz-9jk">
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="71C-rz-9jk">
                                         <rect key="frame" x="15" y="15" width="285" height="135"/>
                                         <color key="backgroundColor" red="0.99772411584854126" green="0.98408037424087524" blue="0.0032180219423025846" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dyI-Bi-kJv">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dyI-Bi-kJv">
                                         <rect key="frame" x="15" y="165" width="285" height="135"/>
                                     </stackView>
                                 </subviews>
