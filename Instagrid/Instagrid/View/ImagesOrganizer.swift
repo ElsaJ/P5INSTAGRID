@@ -19,7 +19,7 @@ class ImagesOrganizer: UIView {
     
     var style: Style = .standard {
         didSet {
-            setStyle(_style: style)
+            setStyle(style)
         }
     }
     
@@ -34,12 +34,12 @@ class ImagesOrganizer: UIView {
         setShape()
     }
     
-    private func setStyle(_style: Style) {
+    private func setStyle(_ style: Style) {
         firstButton.removeFromSuperview()
         secondButton.removeFromSuperview()
         thirdButton.removeFromSuperview()
         fourthButton.removeFromSuperview()
-       
+        
         
         switch style {
         case .standard:
@@ -74,7 +74,5 @@ class ImagesOrganizer: UIView {
         secondButton.imageView?.contentMode = .scaleAspectFill
         thirdButton.imageView?.contentMode = .scaleAspectFill
         fourthButton.imageView?.contentMode = .scaleAspectFill
-        
     }
-   
 }

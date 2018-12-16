@@ -9,19 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var imagesOrganizer: ImagesOrganizer!
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
-
     @IBAction func didTapStandardButton(_ sender: UIButton) {
         imagesOrganizer.style = .standard
         standardButton.setImage(UIImage(named: "Selected"), for: .normal)
@@ -30,10 +28,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapReverseButton(_ sender: UIButton) {
-       imagesOrganizer.style = .reverse
-       reverseButton.setImage(UIImage(named: "Selected"), for: .normal)
-       standardButton.imageView?.isHidden = true
-       squareButton.imageView?.isHidden = true
+        imagesOrganizer.style = .reverse
+        reverseButton.setImage(UIImage(named: "Selected"), for: .normal)
+        standardButton.imageView?.isHidden = true
+        squareButton.imageView?.isHidden = true
     }
     
     @IBAction func didTapSquareButton(_ sender: UIButton) {
@@ -42,6 +40,6 @@ class ViewController: UIViewController {
         standardButton.imageView?.isHidden = true
         reverseButton.imageView?.isHidden = true
     }
-
+    
 }
 
