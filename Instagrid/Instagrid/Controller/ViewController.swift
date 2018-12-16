@@ -24,23 +24,24 @@ class ViewController: UIViewController {
 
     @IBAction func didTapStandardButton(_ sender: UIButton) {
         imagesOrganizer.style = .standard
-        standardButton.setImage(UIImage(named: "Selected"), for: .selected)
-        
+        standardButton.setImage(UIImage(named: "Selected"), for: .normal)
+        reverseButton.imageView?.isHidden = true
+        squareButton.imageView?.isHidden = true
     }
     
     @IBAction func didTapReverseButton(_ sender: UIButton) {
        imagesOrganizer.style = .reverse
-       reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
+       reverseButton.setImage(UIImage(named: "Selected"), for: .normal)
+       standardButton.imageView?.isHidden = true
+       squareButton.imageView?.isHidden = true
     }
     
     @IBAction func didTapSquareButton(_ sender: UIButton) {
         imagesOrganizer.style = .square
-        squareButton.setImage(UIImage(named: "Selected"), for: .selected)
+        squareButton.setImage(UIImage(named: "Selected"), for: .normal)
+        standardButton.imageView?.isHidden = true
+        reverseButton.imageView?.isHidden = true
     }
-    
-    private func setSelectedImage() {
-        
-    }
-    
+
 }
 
