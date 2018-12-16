@@ -66,12 +66,15 @@ class ImagesOrganizer: UIView {
     }
     
     private func setShape() {
-        firstButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
-        secondButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
-        thirdButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
-        fourthButton.setBackgroundImage(UIImage(named: "Combined Shape"), for: .normal)
-        thirdButton.imageView?.contentMode = .topLeft
-        firstButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        firstButton.setImage(UIImage(named: "Combined Shape"), for: .normal)
+        secondButton.setImage(UIImage(named: "Combined Shape"), for: .normal)
+        thirdButton.setImage(UIImage(named: "Combined Shape"), for: .normal)
+        fourthButton.setImage(UIImage(named: "Combined Shape"), for: .normal)
+        firstButton.imageView?.contentMode = .scaleAspectFill
+        secondButton.imageView?.contentMode = .scaleAspectFill
+        thirdButton.imageView?.contentMode = .scaleAspectFill
+        fourthButton.imageView?.contentMode = .scaleAspectFill
+        
     }
    
 }
