@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol ImagesOrganizerViewDelegate: class {
+    func firstButtonDidTap()
+}
+
 class ImagesOrganizerView: UIView {
     
     @IBOutlet private var firstLine: UIStackView!
     @IBOutlet private var secondLine: UIStackView!
+    weak var delegate: ImagesOrganizerViewDelegate?
     
     enum Style {
         case standard, reverse, square
@@ -34,6 +39,10 @@ class ImagesOrganizerView: UIView {
         setBackgroundColors()
         setShape()
         setActionForButtons()
+    }
+    
+    @IBAction func firstButtonDidTap() {
+        delegate?.firstButtonDidTap()
     }
     
     @IBAction private func pickImage() {
@@ -83,7 +92,7 @@ class ImagesOrganizerView: UIView {
     }
     
     private func setActionForButtons() {
-        firstButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(firstButtonDidTap), for: .touchUpInside)
         secondButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
         thirdButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
         fourthButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)

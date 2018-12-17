@@ -14,11 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
+    @IBOutlet weak var imagePicked: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()
+        imagesOrganizerView.delegate = self
     }
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
@@ -47,6 +49,25 @@ class ViewController: UIViewController {
         reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
         squareButton.setImage(UIImage(named: "Selected"), for: .selected)
     }
-    
+}
+
+extension ViewController: ImagesOrganizerViewDelegate {
+    func firstButtonDidTap() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+}
+
+extension ViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imagePicked.image = image
+        dismiss(animated:true, completion: nil)
+    }
 }
 
