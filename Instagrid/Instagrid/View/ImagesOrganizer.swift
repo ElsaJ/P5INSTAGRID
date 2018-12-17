@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImagesOrganizer: UIView {
+class ImagesOrganizerView: UIView {
     
     @IBOutlet private var firstLine: UIStackView!
     @IBOutlet private var secondLine: UIStackView!
@@ -28,10 +28,16 @@ class ImagesOrganizer: UIView {
     let thirdButton = UIButton()
     let fourthButton = UIButton()
     
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setBackgroundColors()
         setShape()
+        setActionForButtons()
+    }
+    
+    @IBAction private func pickImage() {
+        print("pick Image")
     }
     
     private func setStyle(_ style: Style) {
@@ -74,5 +80,12 @@ class ImagesOrganizer: UIView {
         secondButton.imageView?.contentMode = .scaleAspectFill
         thirdButton.imageView?.contentMode = .scaleAspectFill
         fourthButton.imageView?.contentMode = .scaleAspectFill
+    }
+    
+    private func setActionForButtons() {
+        firstButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        thirdButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        fourthButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
     }
 }

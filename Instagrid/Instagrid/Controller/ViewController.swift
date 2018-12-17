@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var imagesOrganizer: ImagesOrganizer!
+    @IBOutlet weak var imagesOrganizerView: ImagesOrganizerView!
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
@@ -18,27 +18,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonsImage()
     }
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
-        imagesOrganizer.style = .standard
-        standardButton.setImage(UIImage(named: "Selected"), for: .normal)
-        reverseButton.imageView?.isHidden = true
-        squareButton.imageView?.isHidden = true
+        imagesOrganizerView.style = .standard
+        standardButton.isSelected = true
+        reverseButton.isSelected = false
+        squareButton.isSelected = false
     }
     
     @IBAction func didTapReverseButton(_ sender: UIButton) {
-        imagesOrganizer.style = .reverse
-        reverseButton.setImage(UIImage(named: "Selected"), for: .normal)
-        standardButton.imageView?.isHidden = true
-        squareButton.imageView?.isHidden = true
+        imagesOrganizerView.style = .reverse
+        standardButton.isSelected = false
+        reverseButton.isSelected = true
+        squareButton.isSelected = false
     }
     
     @IBAction func didTapSquareButton(_ sender: UIButton) {
-        imagesOrganizer.style = .square
-        squareButton.setImage(UIImage(named: "Selected"), for: .normal)
-        standardButton.imageView?.isHidden = true
-        reverseButton.imageView?.isHidden = true
+        imagesOrganizerView.style = .square
+        standardButton.isSelected = false
+        reverseButton.isSelected = false
+        squareButton.isSelected = true
+    }
+    
+    private func setButtonsImage() {
+        standardButton.setImage(UIImage(named: "Selected"), for: .selected)
+        reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
+        squareButton.setImage(UIImage(named: "Selected"), for: .selected)
     }
     
 }
