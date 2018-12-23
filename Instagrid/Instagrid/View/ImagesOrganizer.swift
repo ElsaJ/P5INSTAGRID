@@ -10,7 +10,6 @@ import UIKit
 
 protocol ImagesOrganizerViewDelegate: class {
     func shapeDidTap()
-    func updateImages(image: UIImage)
 }
 
 class ImagesOrganizerView: UIView {
@@ -47,7 +46,6 @@ class ImagesOrganizerView: UIView {
     }
     
     func updateImages(image: UIImage) {
-        delegate?.updateImages(image: image)
         firstButton.setImage(image, for: .normal)
         secondButton.setImage(image, for: .normal)
         thirdButton.setImage(image, for: .normal)
