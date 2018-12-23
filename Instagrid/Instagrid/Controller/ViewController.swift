@@ -52,14 +52,18 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ImagesOrganizerViewDelegate {
-    func firstButtonDidTap() {
+    func shapeDidTap() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
-            var imagePicker = UIImagePickerController()
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func updateImages(image: UIImage) {
+        imagePicked.image = image
     }
 }
 

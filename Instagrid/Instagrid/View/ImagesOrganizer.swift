@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ImagesOrganizerViewDelegate: class {
-    func firstButtonDidTap()
+    func shapeDidTap()
+    func updateImages(image: UIImage)
 }
 
 class ImagesOrganizerView: UIView {
@@ -41,12 +42,16 @@ class ImagesOrganizerView: UIView {
         setActionForButtons()
     }
     
-    @IBAction func firstButtonDidTap() {
-        delegate?.firstButtonDidTap()
+    @IBAction func shapeDidTap() {
+        delegate?.shapeDidTap()
     }
     
-    @IBAction private func pickImage() {
-        print("pick Image")
+    func updateImages(image: UIImage) {
+        delegate?.updateImages(image: image)
+        firstButton.setImage(image, for: .normal)
+        secondButton.setImage(image, for: .normal)
+        thirdButton.setImage(image, for: .normal)
+        fourthButton.setImage(image, for: .normal)
     }
     
     private func setStyle(_ style: Style) {
@@ -92,9 +97,9 @@ class ImagesOrganizerView: UIView {
     }
     
     private func setActionForButtons() {
-        firstButton.addTarget(self, action: #selector(firstButtonDidTap), for: .touchUpInside)
-        secondButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
-        thirdButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
-        fourthButton.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
+        thirdButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
+        fourthButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
     }
 }
