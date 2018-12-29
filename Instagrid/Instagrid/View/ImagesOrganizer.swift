@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImagesOrganizerViewDelegate: class {
-    func shapeDidTap()
+    func shapeDidTap(_ sender: UIButton)
 }
 
 class ImagesOrganizerView: UIView {
@@ -28,12 +28,11 @@ class ImagesOrganizerView: UIView {
         }
     }
     
-    let firstButton = UIButton()
-    let secondButton = UIButton()
-    let thirdButton = UIButton()
-    let fourthButton = UIButton()
-    
-    
+    var firstButton = UIButton()
+    var secondButton = UIButton()
+    var thirdButton = UIButton()
+    var fourthButton = UIButton()
+   
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setBackgroundColors()
@@ -41,15 +40,41 @@ class ImagesOrganizerView: UIView {
         setActionForButtons()
     }
     
-    @IBAction func shapeDidTap() {
-        delegate?.shapeDidTap()
+    @IBAction func shapeDidTap(_ sender: UIButton) {
+        switch sender {
+        case firstButton:  firstButton.tag = 1
+        secondButton.tag = 0
+        thirdButton.tag = 0
+        fourthButton.tag = 0
+        case secondButton:  secondButton.tag = 2
+        firstButton.tag = 0
+        thirdButton.tag = 0
+        fourthButton.tag = 0
+        case thirdButton:   thirdButton.tag = 3
+        firstButton.tag = 0
+        secondButton.tag = 0
+        fourthButton.tag = 0
+        case fourthButton:  fourthButton.tag = 4
+        firstButton.tag = 0
+        thirdButton.tag = 0
+        secondButton.tag = 0
+        default: break
+        }
+        
+        delegate?.shapeDidTap(sender)
     }
     
     func updateImages(image: UIImage) {
-        firstButton.setImage(image, for: .normal)
-        secondButton.setImage(image, for: .normal)
-        thirdButton.setImage(image, for: .normal)
-        fourthButton.setImage(image, for: .normal)
+        
+        if firstButton.tag == 1 {
+            firstButton.setImage(image, for: .selected)
+        } else if secondButton.tag == 2 {
+            secondButton.setImage(image, for: .selected)
+        } else if thirdButton.tag == 3 {
+            thirdButton.setImage(image, for: .selected)
+        } else if fourthButton.tag == 4 {
+            fourthButton.setImage(image, for: .selected)
+        }
     }
     
     private func setStyle(_ style: Style) {
@@ -101,3 +126,4 @@ class ImagesOrganizerView: UIView {
         fourthButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
     }
 }
+
