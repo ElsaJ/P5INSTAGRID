@@ -52,11 +52,11 @@ class ViewController: UIViewController {
 extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDelegate {
     
     func shapeDidTap(_ sender: UIButton) {
-        switch sender.tag {
-        case 1: imagesOrganizerView.firstButton.isSelected = true
-        case 2: imagesOrganizerView.secondButton.isSelected = true
-        case 3: imagesOrganizerView.thirdButton.isSelected = true
-        case 4: imagesOrganizerView.fourthButton.isSelected = true
+        switch sender {
+        case imagesOrganizerView.firstButton : imagesOrganizerView.firstButton.isSelected = true
+        case imagesOrganizerView.secondButton: imagesOrganizerView.secondButton.isSelected = true
+        case imagesOrganizerView.thirdButton: imagesOrganizerView.thirdButton.isSelected = true
+        case imagesOrganizerView.fourthButton: imagesOrganizerView.fourthButton.isSelected = true
         default: break
         }
         
@@ -71,7 +71,7 @@ extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDel
 }
 
 extension ViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imagesOrganizerView.updateImages(image: image)
         dismiss(animated:true, completion: nil)

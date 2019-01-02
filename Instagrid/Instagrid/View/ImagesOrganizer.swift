@@ -17,6 +17,11 @@ class ImagesOrganizerView: UIView {
     @IBOutlet private var firstLine: UIStackView!
     @IBOutlet private var secondLine: UIStackView!
     weak var delegate: ImagesOrganizerViewDelegate?
+    let firstButton = UIButton()
+    let secondButton = UIButton()
+    let thirdButton = UIButton()
+    let fourthButton = UIButton()
+    var position = 0
     
     enum Style {
         case standard, reverse, square
@@ -28,11 +33,6 @@ class ImagesOrganizerView: UIView {
         }
     }
     
-    var firstButton = UIButton()
-    var secondButton = UIButton()
-    var thirdButton = UIButton()
-    var fourthButton = UIButton()
-   
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setBackgroundColors()
@@ -41,38 +41,26 @@ class ImagesOrganizerView: UIView {
     }
     
     @IBAction func shapeDidTap(_ sender: UIButton) {
+       
         switch sender {
-        case firstButton:  firstButton.tag = 1
-        secondButton.tag = 0
-        thirdButton.tag = 0
-        fourthButton.tag = 0
-        case secondButton:  secondButton.tag = 2
-        firstButton.tag = 0
-        thirdButton.tag = 0
-        fourthButton.tag = 0
-        case thirdButton:   thirdButton.tag = 3
-        firstButton.tag = 0
-        secondButton.tag = 0
-        fourthButton.tag = 0
-        case fourthButton:  fourthButton.tag = 4
-        firstButton.tag = 0
-        thirdButton.tag = 0
-        secondButton.tag = 0
+        case firstButton: position = 1
+        case secondButton: position = 2
+        case thirdButton: position = 3
+        case fourthButton: position = 4
         default: break
         }
-        
         delegate?.shapeDidTap(sender)
     }
     
     func updateImages(image: UIImage) {
-        
-        if firstButton.tag == 1 {
+    
+        if position == 1 {
             firstButton.setImage(image, for: .selected)
-        } else if secondButton.tag == 2 {
+        } else if position == 2 {
             secondButton.setImage(image, for: .selected)
-        } else if thirdButton.tag == 3 {
+        } else if position == 3 {
             thirdButton.setImage(image, for: .selected)
-        } else if fourthButton.tag == 4 {
+        } else if position == 4 {
             fourthButton.setImage(image, for: .selected)
         }
     }
