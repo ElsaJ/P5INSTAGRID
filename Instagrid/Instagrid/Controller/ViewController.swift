@@ -51,15 +51,15 @@ class ViewController: UIViewController {
 
 extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDelegate {
     
-    func shapeDidTap(_ sender: UIButton) {
-        switch sender {
-        case imagesOrganizerView.firstButton : imagesOrganizerView.firstButton.isSelected = true
-        case imagesOrganizerView.secondButton: imagesOrganizerView.secondButton.isSelected = true
-        case imagesOrganizerView.thirdButton: imagesOrganizerView.thirdButton.isSelected = true
-        case imagesOrganizerView.fourthButton: imagesOrganizerView.fourthButton.isSelected = true
+    func getImageForShape(_ index: Int) {
+        switch index {
+        case 1: imagesOrganizerView.firstButton.isSelected = true
+        case 2: imagesOrganizerView.secondButton.isSelected = true
+        case 3: imagesOrganizerView.thirdButton.isSelected = true
+        case 4: imagesOrganizerView.fourthButton.isSelected = true
         default: break
         }
-        
+    
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self

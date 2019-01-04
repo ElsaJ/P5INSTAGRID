@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImagesOrganizerViewDelegate: class {
-    func shapeDidTap(_ sender: UIButton)
+    func getImageForShape(_ index: Int)
 }
 
 class ImagesOrganizerView: UIView {
@@ -41,7 +41,6 @@ class ImagesOrganizerView: UIView {
     }
     
     @IBAction func shapeDidTap(_ sender: UIButton) {
-       
         switch sender {
         case firstButton: position = 1
         case secondButton: position = 2
@@ -49,7 +48,12 @@ class ImagesOrganizerView: UIView {
         case fourthButton: position = 4
         default: break
         }
-        delegate?.shapeDidTap(sender)
+        getImageForShape(position)
+    }
+    
+    func getImageForShape(_ index: Int) {
+        position = index
+        delegate?.getImageForShape(position)
     }
     
     func updateImages(image: UIImage) {
