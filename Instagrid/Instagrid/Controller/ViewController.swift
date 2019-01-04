@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var imagesOrganizerView: ImagesOrganizerView!
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
@@ -59,7 +58,7 @@ extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDel
         case 4: imagesOrganizerView.fourthButton.isSelected = true
         default: break
         }
-    
+        
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -71,7 +70,7 @@ extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDel
 }
 
 extension ViewController: UIImagePickerControllerDelegate {
-        @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imagesOrganizerView.updateImages(image: image)
         dismiss(animated:true, completion: nil)
