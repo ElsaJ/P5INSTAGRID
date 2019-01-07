@@ -244,7 +244,7 @@
                                     <outletCollection property="gestureRecognizers" destination="BZJ-VZ-Aac" appends="YES" id="dZj-FZ-roR"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah" customClass="ImagesOrganizer" customModule="Instagrid" customModuleProvider="target">
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah" customClass="ImagesOrganizerView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="71C-rz-9jk">
@@ -269,8 +269,8 @@
                                     <constraint firstAttribute="bottom" secondItem="dyI-Bi-kJv" secondAttribute="bottom" constant="15" id="w97-Re-x7G"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="firstLine" destination="71C-rz-9jk" id="bgM-i3-ujg"/>
-                                    <outlet property="secondLine" destination="dyI-Bi-kJv" id="Ekl-IM-pyz"/>
+                                    <outlet property="firstLine" destination="71C-rz-9jk" id="SaM-hn-zr9"/>
+                                    <outlet property="secondLine" destination="dyI-Bi-kJv" id="piq-fx-RSU"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -414,9 +414,6 @@
                                 <exclude reference="4Mu-fz-TvK"/>
                                 <exclude reference="xXU-9c-HbM"/>
                                 <exclude reference="2Lh-PD-rn7"/>
-                                <exclude reference="D29-og-rNp"/>
-                                <exclude reference="SUE-wx-WpN"/>
-                                <exclude reference="tnH-Jy-qyz"/>
                                 <exclude reference="0WN-GG-NGQ"/>
                                 <exclude reference="0xv-Qv-1Jd"/>
                                 <exclude reference="17d-05-UcC"/>
@@ -457,13 +454,16 @@
                                 <exclude reference="7IL-eZ-deI"/>
                                 <exclude reference="Yie-ta-p2L"/>
                                 <exclude reference="bic-as-fcp"/>
-                                <exclude reference="ASJ-9d-VHk"/>
                                 <exclude reference="P4l-gn-Joj"/>
                                 <exclude reference="bb9-nd-NeV"/>
                                 <exclude reference="gWo-5j-R0k"/>
                                 <exclude reference="1ea-Ka-usL"/>
                                 <exclude reference="2Zb-0c-dMs"/>
                                 <exclude reference="3L3-64-mKq"/>
+                                <exclude reference="D29-og-rNp"/>
+                                <exclude reference="SUE-wx-WpN"/>
+                                <exclude reference="tnH-Jy-qyz"/>
+                                <exclude reference="ASJ-9d-VHk"/>
                                 <exclude reference="7f8-WY-Eon"/>
                                 <exclude reference="D9m-wr-e2T"/>
                                 <exclude reference="EDw-Yy-uJW"/>
@@ -514,9 +514,6 @@
                                 <include reference="4Mu-fz-TvK"/>
                                 <exclude reference="xXU-9c-HbM"/>
                                 <exclude reference="2Lh-PD-rn7"/>
-                                <include reference="D29-og-rNp"/>
-                                <exclude reference="SUE-wx-WpN"/>
-                                <include reference="tnH-Jy-qyz"/>
                                 <exclude reference="0WN-GG-NGQ"/>
                                 <exclude reference="0xv-Qv-1Jd"/>
                                 <exclude reference="17d-05-UcC"/>
@@ -563,13 +560,16 @@
                                 <exclude reference="bic-as-fcp"/>
                                 <exclude reference="fVL-sC-k71"/>
                                 <exclude reference="vhJ-Rt-bbE"/>
-                                <exclude reference="cWE-cF-lUU"/>
                                 <exclude reference="P4l-gn-Joj"/>
                                 <exclude reference="bb9-nd-NeV"/>
                                 <exclude reference="gWo-5j-R0k"/>
                                 <exclude reference="1ea-Ka-usL"/>
                                 <exclude reference="2Zb-0c-dMs"/>
                                 <exclude reference="3L3-64-mKq"/>
+                                <include reference="D29-og-rNp"/>
+                                <exclude reference="SUE-wx-WpN"/>
+                                <include reference="tnH-Jy-qyz"/>
+                                <exclude reference="cWE-cF-lUU"/>
                                 <exclude reference="7f8-WY-Eon"/>
                                 <exclude reference="D9m-wr-e2T"/>
                                 <exclude reference="Dv5-Hm-3wr"/>
@@ -616,7 +616,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="ImagesOrganizer" destination="JSg-88-9ah" id="Qtl-Du-ncM"/>
+                        <outlet property="imagesOrganizerView" destination="JSg-88-9ah" id="6ac-x7-9jm"/>
                         <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
                         <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
                         <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
