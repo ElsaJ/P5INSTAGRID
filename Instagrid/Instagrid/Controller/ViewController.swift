@@ -13,12 +13,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var squareButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
+    @IBOutlet weak var chevron: UIButton!
+    @IBOutlet weak var chevronLandscape: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()
         imagesOrganizerView.delegate = self
+        
+        let up = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
+        up.direction = .up
+        self.chevron.addGestureRecognizer(up)
+        
+        let left = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
+        left.direction = .left
+        self.chevronLandscape.addGestureRecognizer(up)
     }
+    
+    @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
+            imagesOrganizerView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            guard let image = UIGraphicsGetImageFromCurrentImageContext() else
+            { return }
+            UIGraphicsEndImageContext()
+            let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        }
+    }
+
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
         imagesOrganizerView.style = .standard
