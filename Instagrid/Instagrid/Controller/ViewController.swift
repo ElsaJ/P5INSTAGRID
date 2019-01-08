@@ -27,7 +27,12 @@ class ViewController: UIViewController {
     
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
-            let activityController = UIActivityViewController(activityItems: [chevron], applicationActivities: nil)
+            UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
+            imagesOrganizerView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            guard let image = UIGraphicsGetImageFromCurrentImageContext() else
+            { return }
+            UIGraphicsEndImageContext()
+            let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         }
     }
