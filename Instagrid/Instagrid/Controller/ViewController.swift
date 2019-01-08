@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var chevron: UIButton!
+    @IBOutlet weak var chevronLandscape: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class ViewController: UIViewController {
         let up = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
         up.direction = .up
         self.chevron.addGestureRecognizer(up)
+        
+        let left = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
+        left.direction = .left
+        self.chevronLandscape.addGestureRecognizer(up)
     }
     
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
