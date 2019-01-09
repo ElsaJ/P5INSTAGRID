@@ -24,6 +24,7 @@ class ImagesOrganizerView: UIView {
     let secondButton = UIButton()
     let thirdButton = UIButton()
     let fourthButton = UIButton()
+    var firstButtonOgImage = UIImage()
     var position = 0
     
     /// enum for the three different styles
@@ -70,6 +71,10 @@ class ImagesOrganizerView: UIView {
         return filteredImage
     }
     
+   func applyBlack() {
+        firstButtonOgImage = applyFilter(image: firstButtonOgImage, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: 1, filterEffectValueName: kCIInputIntensityKey))!
+    }
+    
     /// observing style
     var style: Style = .standard {
         didSet {
@@ -108,6 +113,7 @@ class ImagesOrganizerView: UIView {
         
         if position == 1 {
             firstButton.setImage(image, for: .selected)
+            firstButtonOgImage = image
         } else if position == 2 {
             secondButton.setImage(image, for: .selected)
         } else if position == 3 {

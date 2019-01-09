@@ -49,6 +49,10 @@ class ViewController: UIViewController {
     @IBAction func didTapColorButton(_ sender: UIButton) {
         
     }
+    
+    @IBAction func didTapBlackAndWhiteButton(_ sender: UIButton) {
+        imagesOrganizerView.applyBlack()
+    }
 
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
