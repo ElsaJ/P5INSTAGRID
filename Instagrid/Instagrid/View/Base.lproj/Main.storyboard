@@ -301,6 +301,9 @@
                                     <constraint firstAttribute="width" secondItem="MZZ-hV-N7e" secondAttribute="height" multiplier="1:1" id="kNj-R3-UEI"/>
                                 </constraints>
                                 <state key="normal" image="colorButton"/>
+                                <connections>
+                                    <action selector="didTapColorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GkN-Cp-FUT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-aE-n1J">
                                 <rect key="frame" x="174" y="512" width="30" height="30"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 /// protocol to instaure the delegation
 protocol ImagesOrganizerViewDelegate: class {
@@ -28,6 +29,45 @@ class ImagesOrganizerView: UIView {
     /// enum for the three different styles
     enum Style {
         case standard, reverse, square
+    }
+    
+    struct Filter {
+        let filterName: String
+        var filterEffectValue: Any?
+        var filterEffectValueName: String?
+        
+        init(filterName: String, filterEffectValue: Any?, filterEffectValueName: String?) {
+            self.filterName = filterName
+            self.filterEffectValue = filterEffectValue
+            self.filterEffectValueName = filterEffectValueName
+        }
+    }
+    
+    private func applyFilter(image: UIImage, filterEffect: Filter) -> UIImage? {
+        guard let cgImage = image.cgImage,
+            let openGLContext = EAGLContext(api: .openGLES3) else {
+               return nil
+        }
+        
+        let context = CIContext(eaglContext: openGLContext)
+        let ciImage = CIImage(cgImage: cgImage)
+        let filter = CIFilter(name: filterEffect.filterName)
+        
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        
+        if let filterEffectValue = filterEffect.filterEffectValue,
+            let filterEffectValueName = filterEffect.filterEffectValueName {
+            filter?.setValue(filterEffectValue, forKey: filterEffectValueName)
+        }
+        
+        var filteredImage: UIImage?
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage,
+            let cgiImageResult = context.createCGImage(output, from: output.extent) {
+            filteredImage = UIImage(cgImage: cgiImageResult)
+        }
+        
+        return filteredImage
     }
     
     /// observing style

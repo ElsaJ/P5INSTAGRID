@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 class ViewController: UIViewController {
     @IBOutlet weak var imagesOrganizerView: ImagesOrganizerView!
@@ -43,6 +44,10 @@ class ViewController: UIViewController {
             let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
             present(activityController, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func didTapColorButton(_ sender: UIButton) {
+        
     }
 
     
