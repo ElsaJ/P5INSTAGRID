@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var chevron: UIButton!
     @IBOutlet weak var chevronLandscape: UIButton!
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var blackWhiteButton: UIButton!
+    @IBOutlet weak var sepiaButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

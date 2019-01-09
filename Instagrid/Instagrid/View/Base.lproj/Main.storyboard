@@ -295,6 +295,21 @@
                                     <action selector="didTapReverseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2s-jR-rpP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZZ-hV-N7e">
+                                <rect key="frame" x="73" y="512" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="colorButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-aE-n1J">
+                                <rect key="frame" x="174" y="512" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="BWButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-fb-MA4">
+                                <rect key="frame" x="273" y="512" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="sepiaButton"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.71777290105819702" green="0.83855408430099487" blue="0.90139484405517578" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -684,10 +699,13 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="blackWhiteButton" destination="2MQ-aE-n1J" id="OmV-Km-iY7"/>
                         <outlet property="chevron" destination="tsI-Yc-kxs" id="gVP-aJ-ORt"/>
                         <outlet property="chevronLandscape" destination="Xw0-Xe-vsu" id="fp5-z6-y9f"/>
+                        <outlet property="colorButton" destination="MZZ-hV-N7e" id="iJb-z3-5ok"/>
                         <outlet property="imagesOrganizerView" destination="JSg-88-9ah" id="6ac-x7-9jm"/>
                         <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
+                        <outlet property="sepiaButton" destination="YUj-fb-MA4" id="Kbb-y5-KUb"/>
                         <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
                         <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
                     </connections>
@@ -700,10 +718,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BWButton" width="30" height="30"/>
         <image name="Layout 1" width="80" height="80"/>
         <image name="Layout 2" width="80" height="80"/>
         <image name="Layout 3" width="80" height="80"/>
         <image name="chevron" width="15" height="10"/>
         <image name="chevron landscape" width="10" height="15"/>
+        <image name="colorButton" width="30" height="30"/>
+        <image name="sepiaButton" width="30" height="30"/>
     </resources>
 </document>
