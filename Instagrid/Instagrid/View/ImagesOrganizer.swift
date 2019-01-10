@@ -24,7 +24,8 @@ class ImagesOrganizerView: UIView {
     let secondButton = UIButton()
     let thirdButton = UIButton()
     let fourthButton = UIButton()
-    var firstButtonOgImage = UIImage()
+    @IBOutlet weak var firstButtonOgImage: UIImage?
+//    private var firstButtonOgImage: UIImage?
     var position = 0
     
     /// enum for the three different styles
@@ -47,32 +48,45 @@ class ImagesOrganizerView: UIView {
     private func applyFilter(image: UIImage, filterEffect: Filter) -> UIImage? {
         guard let cgImage = image.cgImage,
             let openGLContext = EAGLContext(api: .openGLES3) else {
-               return nil
+                return nil
         }
-        
+
         let context = CIContext(eaglContext: openGLContext)
         let ciImage = CIImage(cgImage: cgImage)
         let filter = CIFilter(name: filterEffect.filterName)
-        
+
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        
+
         if let filterEffectValue = filterEffect.filterEffectValue,
             let filterEffectValueName = filterEffect.filterEffectValueName {
             filter?.setValue(filterEffectValue, forKey: filterEffectValueName)
         }
-        
+
         var filteredImage: UIImage?
-        
+
         if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage,
             let cgiImageResult = context.createCGImage(output, from: output.extent) {
             filteredImage = UIImage(cgImage: cgiImageResult)
         }
-        
+
         return filteredImage
     }
     
    func applyBlack() {
-        firstButtonOgImage = applyFilter(image: firstButtonOgImage, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: 1, filterEffectValueName: kCIInputIntensityKey))!
+    firstButtonOgImage = firstButton.currentImage
+    guard let image = firstButton.currentImage else {
+        return
+    }
+    
+    firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: nil, filterEffectValueName: nil))
+    }
+    
+    func applySepia() {
+        firstButtonOgImage = firstButton.currentImage
+        guard let image = firstButton.currentImage else {
+            return
+        }
+        firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CISepiatone", filterEffectValue: 0.70, filterEffectValueName: kCIInputIntensityKey))
     }
     
     /// observing style
@@ -113,7 +127,6 @@ class ImagesOrganizerView: UIView {
         
         if position == 1 {
             firstButton.setImage(image, for: .selected)
-            firstButtonOgImage = image
         } else if position == 2 {
             secondButton.setImage(image, for: .selected)
         } else if position == 3 {

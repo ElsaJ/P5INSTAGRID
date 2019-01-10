@@ -53,6 +53,10 @@ class ViewController: UIViewController {
     @IBAction func didTapBlackAndWhiteButton(_ sender: UIButton) {
         imagesOrganizerView.applyBlack()
     }
+    
+    @IBAction func didTapSepiaButton(_ sender: UIButton) {
+        imagesOrganizerView.applySepia()
+    }
 
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
