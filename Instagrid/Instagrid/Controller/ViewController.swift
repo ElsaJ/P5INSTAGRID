@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var blackWhiteButton: UIButton!
     @IBOutlet weak var sepiaButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()

@@ -24,8 +24,7 @@ class ImagesOrganizerView: UIView {
     let secondButton = UIButton()
     let thirdButton = UIButton()
     let fourthButton = UIButton()
-    @IBOutlet weak var firstButtonOgImage: UIImage?
-//    private var firstButtonOgImage: UIImage?
+    var firstButtonOgImage: UIImage?
     var position = 0
     
     /// enum for the three different styles
@@ -73,8 +72,7 @@ class ImagesOrganizerView: UIView {
     }
     
    func applyBlack() {
-    firstButtonOgImage = firstButton.currentImage
-    guard let image = firstButton.currentImage else {
+    guard let image = firstButtonOgImage else {
         return
     }
     
@@ -82,8 +80,8 @@ class ImagesOrganizerView: UIView {
     }
     
     func applySepia() {
-        firstButtonOgImage = firstButton.currentImage
-        guard let image = firstButton.currentImage else {
+
+        guard let image = firstButtonOgImage else {
             return
         }
         firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CISepiatone", filterEffectValue: 0.70, filterEffectValueName: kCIInputIntensityKey))
@@ -127,6 +125,7 @@ class ImagesOrganizerView: UIView {
         
         if position == 1 {
             firstButton.setImage(image, for: .selected)
+            firstButtonOgImage = firstButton.image(for: .selected)
         } else if position == 2 {
             secondButton.setImage(image, for: .selected)
         } else if position == 3 {
