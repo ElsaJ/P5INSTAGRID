@@ -77,6 +77,8 @@ class ImagesOrganizerView: UIView {
     }
     
     firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: nil, filterEffectValueName: nil))
+    
+    firstButton.setImage(image, for: .selected)
     }
     
     func applySepia() {

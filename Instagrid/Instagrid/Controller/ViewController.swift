@@ -19,32 +19,42 @@ class ViewController: UIViewController {
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var blackWhiteButton: UIButton!
     @IBOutlet weak var sepiaButton: UIButton!
-    
+    @IBOutlet var upSwipeGestureRecognizer: UISwipeGestureRecognizer!
+    @IBOutlet var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
+    private var direction = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()
         imagesOrganizerView.delegate = self
-        
-        let up = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
-        up.direction = .up
-        self.chevron.addGestureRecognizer(up)
-        
-        let left = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(sender:)))
-        left.direction = .left
-        self.chevronLandscape.addGestureRecognizer(up)
     }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        if newCollection.verticalSizeClass == .regular {
+            direction = upSwipeGestureRecognizer
+        } else if newCollection.verticalSizeClass == .compact {
+            direction = leftSwipeGestureRecognizer
+        } else if newCollection.horizontalSizeClass == .regular {
+            direction = leftSwipeGestureRecognizer
+        }
+    }
+    
     
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
-            UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
-            imagesOrganizerView.layer.render(in: UIGraphicsGetCurrentContext()!)
-            guard let image = UIGraphicsGetImageFromCurrentImageContext() else
-            { return }
-            UIGraphicsEndImageContext()
-            let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-            present(activityController, animated: true, completion: nil)
+            sendImageToActivityController()
         }
+    }
+    
+    private func sendImageToActivityController() {
+        UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
+        imagesOrganizerView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else
+        { return }
+        UIGraphicsEndImageContext()
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
     }
     
     @IBAction func didTapColorButton(_ sender: UIButton) {

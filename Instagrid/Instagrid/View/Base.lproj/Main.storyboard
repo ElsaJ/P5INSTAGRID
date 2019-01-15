@@ -212,17 +212,11 @@
                                 <rect key="frame" x="88.5" y="172" width="10" height="22"/>
                                 <gestureRecognizers/>
                                 <state key="normal" image="chevron landscape"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="OU6-mJ-9Cr" appends="YES" id="TnJ-aF-ucY"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsI-Yc-kxs">
                                 <rect key="frame" x="180" y="101" width="15" height="22"/>
                                 <gestureRecognizers/>
                                 <state key="normal" image="chevron"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="K1Z-Jy-eOc" appends="YES" id="Is6-Np-Aef"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSg-88-9ah" customClass="ImagesOrganizerView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="30" y="176" width="315" height="315"/>
@@ -722,6 +716,10 @@
                                 <exclude reference="wmk-88-x1a"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bLD-nt-PUA" appends="YES" id="nlQ-sa-QhC"/>
+                            <outletCollection property="gestureRecognizers" destination="ZY5-Wt-n8f" appends="YES" id="b8h-zg-du1"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="blackWhiteButton" destination="2MQ-aE-n1J" id="OmV-Km-iY7"/>
@@ -729,15 +727,25 @@
                         <outlet property="chevronLandscape" destination="Xw0-Xe-vsu" id="fp5-z6-y9f"/>
                         <outlet property="colorButton" destination="MZZ-hV-N7e" id="iJb-z3-5ok"/>
                         <outlet property="imagesOrganizerView" destination="JSg-88-9ah" id="6ac-x7-9jm"/>
+                        <outlet property="leftSwipeGestureRecognizer" destination="ZY5-Wt-n8f" id="MXI-i7-DXR"/>
                         <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
                         <outlet property="sepiaButton" destination="YUj-fb-MA4" id="Kbb-y5-KUb"/>
                         <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
                         <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
+                        <outlet property="upSwipeGestureRecognizer" destination="bLD-nt-PUA" id="9Xq-MT-Za2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="K1Z-Jy-eOc"/>
-                <swipeGestureRecognizer direction="right" id="OU6-mJ-9Cr"/>
+                <swipeGestureRecognizer direction="up" id="bLD-nt-PUA">
+                    <connections>
+                        <action selector="swipeHandlerWithSender:" destination="BYZ-38-t0r" id="PjE-TK-fCn"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ZY5-Wt-n8f">
+                    <connections>
+                        <action selector="swipeHandlerWithSender:" destination="BYZ-38-t0r" id="17y-Xv-byk"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1010.6446776611695" y="151.19999999999999"/>
         </scene>
