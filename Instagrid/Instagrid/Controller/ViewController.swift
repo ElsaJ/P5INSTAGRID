@@ -31,12 +31,14 @@ class ViewController: UIViewController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
-        if newCollection.verticalSizeClass == .regular {
-            direction = upSwipeGestureRecognizer
-        } else if newCollection.verticalSizeClass == .compact {
-            direction = leftSwipeGestureRecognizer
-        } else if newCollection.horizontalSizeClass == .regular {
-            direction = leftSwipeGestureRecognizer
+        coordinator.animate(alongsideTransition: { [unowned self] _ in
+            if newCollection.verticalSizeClass == .compact {
+                self.upSwipeGestureRecognizer.isEnabled = false
+            } else if newCollection.horizontalSizeClass == .regular {
+                self.upSwipeGestureRecognizer.isEnabled = false
+            }
+        }) { [unowned self] _ in
+            self.leftSwipeGestureRecognizer.isEnabled = false
         }
     }
     
@@ -49,7 +51,9 @@ class ViewController: UIViewController {
     
     private func sendImageToActivityController() {
         UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
-        imagesOrganizerView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        guard let context = UIGraphicsGetCurrentContext() else
+        { return }
+        imagesOrganizerView.layer.render(in: context)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else
         { return }
         UIGraphicsEndImageContext()
