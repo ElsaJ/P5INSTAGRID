@@ -21,8 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var sepiaButton: UIButton!
     @IBOutlet var upSwipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
-    private var direction = UISwipeGestureRecognizer()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()
@@ -42,35 +41,22 @@ class ViewController: UIViewController {
         }
     }
     
-    
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
             sendImageToActivityController()
         }
     }
     
-    private func sendImageToActivityController() {
-        UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
-        guard let context = UIGraphicsGetCurrentContext() else
-        { return }
-        imagesOrganizerView.layer.render(in: context)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else
-        { return }
-        UIGraphicsEndImageContext()
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        present(activityController, animated: true, completion: nil)
-    }
-    
     @IBAction func didTapColorButton(_ sender: UIButton) {
-        
+         imagesOrganizerView.applyColorFilter()
     }
     
     @IBAction func didTapBlackAndWhiteButton(_ sender: UIButton) {
-        imagesOrganizerView.applyBlack()
+        imagesOrganizerView.applyBlackFilter()
     }
     
     @IBAction func didTapSepiaButton(_ sender: UIButton) {
-        imagesOrganizerView.applySepia()
+        imagesOrganizerView.applySepiaFilter()
     }
 
     
@@ -99,6 +85,18 @@ class ViewController: UIViewController {
         standardButton.setImage(UIImage(named: "Selected"), for: .selected)
         reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
         squareButton.setImage(UIImage(named: "Selected"), for: .selected)
+    }
+    
+    private func sendImageToActivityController() {
+        UIGraphicsBeginImageContext(imagesOrganizerView.frame.size)
+        guard let context = UIGraphicsGetCurrentContext() else
+        { return }
+        imagesOrganizerView.layer.render(in: context)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else
+        { return }
+        UIGraphicsEndImageContext()
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
     }
 }
 

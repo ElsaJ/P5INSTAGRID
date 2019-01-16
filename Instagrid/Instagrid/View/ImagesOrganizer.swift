@@ -16,7 +16,6 @@ protocol ImagesOrganizerViewDelegate: class {
 
 /// class to organize images in the main view
 class ImagesOrganizerView: UIView {
-    
     @IBOutlet private var firstLine: UIStackView!
     @IBOutlet private var secondLine: UIStackView!
     weak var delegate: ImagesOrganizerViewDelegate?
@@ -24,69 +23,12 @@ class ImagesOrganizerView: UIView {
     let secondButton = UIButton()
     let thirdButton = UIButton()
     let fourthButton = UIButton()
-    var firstButtonOgImage: UIImage?
+    var filteredImage: UIImage?
     var position = 0
     
     /// enum for the three different styles
     enum Style {
         case standard, reverse, square
-    }
-    
-    struct Filter {
-        let filterName: String
-        var filterEffectValue: Any?
-        var filterEffectValueName: String?
-        
-        init(filterName: String, filterEffectValue: Any?, filterEffectValueName: String?) {
-            self.filterName = filterName
-            self.filterEffectValue = filterEffectValue
-            self.filterEffectValueName = filterEffectValueName
-        }
-    }
-    
-    private func applyFilter(image: UIImage, filterEffect: Filter) -> UIImage? {
-        guard let cgImage = image.cgImage,
-            let openGLContext = EAGLContext(api: .openGLES3) else {
-                return nil
-        }
-
-        let context = CIContext(eaglContext: openGLContext)
-        let ciImage = CIImage(cgImage: cgImage)
-        let filter = CIFilter(name: filterEffect.filterName)
-
-        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-
-        if let filterEffectValue = filterEffect.filterEffectValue,
-            let filterEffectValueName = filterEffect.filterEffectValueName {
-            filter?.setValue(filterEffectValue, forKey: filterEffectValueName)
-        }
-
-        var filteredImage: UIImage?
-
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage,
-            let cgiImageResult = context.createCGImage(output, from: output.extent) {
-            filteredImage = UIImage(cgImage: cgiImageResult)
-        }
-
-        return filteredImage
-    }
-    
-   func applyBlack() {
-    guard let image = firstButtonOgImage else {
-        return
-    }
-    
-    firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CIPhotoEffectNoir", filterEffectValue: nil, filterEffectValueName: nil))
-    
-    firstButton.setImage(image, for: .selected)
-    }
-    
-    func applySepia() {
-
-        guard let image = firstButtonOgImage else {
-            return
-        }
-        firstButtonOgImage = applyFilter(image: image, filterEffect: Filter(filterName: "CISepiatone", filterEffectValue: 0.70, filterEffectValueName: kCIInputIntensityKey))
     }
     
     /// observing style
@@ -103,6 +45,73 @@ class ImagesOrganizerView: UIView {
         setShape()
         setActionForButtons()
     }
+    
+    func applyFilter(image: UIImage, filterEffect: FilterManager) -> UIImage? {
+        guard let cgImage = image.cgImage,
+            let openGLContext = EAGLContext(api: .openGLES3) else {
+                return nil
+        }
+        
+        let context = CIContext(eaglContext: openGLContext)
+        let ciImage = CIImage(cgImage: cgImage)
+        let filter = CIFilter(name: filterEffect.filterName)
+        
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        
+        if let filterEffectValue = filterEffect.filterEffectValue,
+            let filterEffectValueName = filterEffect.filterEffectValueName {
+            filter?.setValue(filterEffectValue, forKey: filterEffectValueName)
+        }
+        
+        var filteredImage: UIImage?
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage,
+            let cgiImageResult = context.createCGImage(output, from: output.extent) {
+            filteredImage = UIImage(cgImage: cgiImageResult)
+        }
+        return filteredImage
+    }
+    
+    func applyBlackFilter() {
+        guard let image = filteredImage else {
+            return
+        }
+        
+        filteredImage = applyFilter(image: image, filterEffect: FilterManager(filterName: "CIPhotoEffectNoir", filterEffectValue: nil, filterEffectValueName: nil))
+        updateFilterImages(image: image)
+        
+    }
+    
+    func applySepiaFilter() {
+        
+        guard let image = filteredImage else {
+            return
+        }
+        filteredImage = applyFilter(image: image, filterEffect: FilterManager(filterName: "CISepiatone", filterEffectValue: 0.70, filterEffectValueName: kCIInputIntensityKey))
+        updateFilterImages(image: image)
+    }
+    
+    func applyColorFilter() {
+        guard let image = filteredImage else {
+            return
+        }
+        filteredImage = applyFilter(image: image, filterEffect: FilterManager(filterName: "CIColorMap", filterEffectValue: nil, filterEffectValueName: kCIAttributeTypeGradient))
+        updateFilterImages(image: image)
+    }
+
+    
+    func updateFilterImages(image: UIImage) {
+        if position == 1 {
+            firstButton.setImage(image, for: .selected)
+        } else if position == 2 {
+           secondButton.setImage(image, for: .selected)
+        } else if position == 3 {
+            thirdButton.setImage(image, for: .selected)
+        } else if position == 4 {
+            fourthButton.setImage(image, for: .selected)
+        }
+    }
+    
     
     /// action's func to recognize which button is tapped
     @IBAction func shapeDidTap(_ sender: UIButton) {
@@ -124,16 +133,18 @@ class ImagesOrganizerView: UIView {
     
     /// func to update images on each button
     func updateImages(image: UIImage) {
-        
         if position == 1 {
             firstButton.setImage(image, for: .selected)
-            firstButtonOgImage = firstButton.image(for: .selected)
+            filteredImage = firstButton.image(for: .selected)
         } else if position == 2 {
             secondButton.setImage(image, for: .selected)
+            filteredImage = secondButton.image(for: .selected)
         } else if position == 3 {
             thirdButton.setImage(image, for: .selected)
+            filteredImage = thirdButton.image(for: .selected)
         } else if position == 4 {
             fourthButton.setImage(image, for: .selected)
+            filteredImage = fourthButton.image(for: .selected)
         }
     }
     

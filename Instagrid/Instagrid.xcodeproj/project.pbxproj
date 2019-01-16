@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E524B06F21A05CBF00FF80D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D7EA28218B673F004769F5 /* Assets.xcassets */; };
+		E52700D021EF849D00ED8F68 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52700CF21EF849D00ED8F68 /* FilterManager.swift */; };
 		E5CEEA7D21B3FF3500A16DE5 /* ImagesOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CEEA7C21B3FF3500A16DE5 /* ImagesOrganizer.swift */; };
 		E5D7EA22218B673C004769F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7EA21218B673C004769F5 /* AppDelegate.swift */; };
 		E5D7EA24218B673C004769F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D7EA23218B673C004769F5 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E52700CF21EF849D00ED8F68 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		E5CEEA7C21B3FF3500A16DE5 /* ImagesOrganizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesOrganizer.swift; sourceTree = "<group>"; };
 		E5D7EA1E218B673C004769F5 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D7EA21218B673C004769F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				E5D7EA25218B673C004769F5 /* Main.storyboard */,
 				E5CEEA7C21B3FF3500A16DE5 /* ImagesOrganizer.swift */,
+				E52700CF21EF849D00ED8F68 /* FilterManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				E5CEEA7D21B3FF3500A16DE5 /* ImagesOrganizer.swift in Sources */,
 				E5D7EA24218B673C004769F5 /* ViewController.swift in Sources */,
 				E5D7EA22218B673C004769F5 /* AppDelegate.swift in Sources */,
+				E52700D021EF849D00ED8F68 /* FilterManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
