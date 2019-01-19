@@ -30,16 +30,27 @@ class ViewController: UIViewController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
-        coordinator.animate(alongsideTransition: { [unowned self] _ in
-            if newCollection.verticalSizeClass == .compact {
-                self.upSwipeGestureRecognizer.isEnabled = false
-            } else if newCollection.horizontalSizeClass == .regular {
-                self.upSwipeGestureRecognizer.isEnabled = false
-            }
-        }) { [unowned self] _ in
-            self.leftSwipeGestureRecognizer.isEnabled = false
-        }
-    }
+        if newCollection.verticalSizeClass == .compact {
+            self.upSwipeGestureRecognizer.isEnabled = false
+            self.leftSwipeGestureRecognizer.isEnabled = true
+        } else if newCollection.horizontalSizeClass == . regular {
+            self.upSwipeGestureRecognizer.isEnabled = false
+            self.leftSwipeGestureRecognizer.isEnabled = true
+        }  else if newCollection.verticalSizeClass == .regular {
+            self.upSwipeGestureRecognizer.isEnabled = true
+            self.leftSwipeGestureRecognizer.isEnabled = false } }
+            
+
+//        coordinator.animate(alongsideTransition: { [unowned self] _ in
+//            if newCollection.verticalSizeClass == .compact {
+//                self.upSwipeGestureRecognizer.isEnabled = false
+//            } else if newCollection.horizontalSizeClass == .regular {
+//                self.upSwipeGestureRecognizer.isEnabled = false
+//            }
+//        }) { [unowned self] _ in
+//            self.leftSwipeGestureRecognizer.isEnabled = false
+//        }
+    
     
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {

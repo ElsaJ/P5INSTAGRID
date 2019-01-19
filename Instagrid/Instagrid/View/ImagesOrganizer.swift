@@ -83,7 +83,6 @@ class ImagesOrganizerView: UIView {
     }
     
     func applySepiaFilter() {
-        
         guard let image = filteredImage else {
             return
         }
