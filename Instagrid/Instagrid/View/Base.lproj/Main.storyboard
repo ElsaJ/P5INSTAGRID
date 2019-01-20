@@ -289,32 +289,32 @@
                                     <action selector="didTapReverseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2s-jR-rpP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZZ-hV-N7e">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZZ-hV-N7e" userLabel="black Button">
                                 <rect key="frame" x="73" y="512" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MZZ-hV-N7e" secondAttribute="height" multiplier="1:1" id="kNj-R3-UEI"/>
                                 </constraints>
-                                <state key="normal" image="colorButton"/>
                                 <connections>
                                     <action selector="didTapColorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GkN-Cp-FUT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-aE-n1J">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-aE-n1J" userLabel="purple  Button">
                                 <rect key="frame" x="174" y="512" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2MQ-aE-n1J" secondAttribute="height" multiplier="1:1" id="Aph-49-hsJ"/>
                                 </constraints>
-                                <state key="normal" image="BWButton"/>
                                 <connections>
                                     <action selector="didTapBlackAndWhiteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tgn-FR-165"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-fb-MA4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-fb-MA4" userLabel="brown Button">
                                 <rect key="frame" x="273" y="512" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YUj-fb-MA4" secondAttribute="height" multiplier="1:1" id="AXT-5O-bcd"/>
                                 </constraints>
-                                <state key="normal" image="sepiaButton"/>
                                 <connections>
                                     <action selector="didTapSepiaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uLf-nf-pDv"/>
                                 </connections>
@@ -751,13 +751,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BWButton" width="30" height="30"/>
         <image name="Layout 1" width="80" height="80"/>
         <image name="Layout 2" width="80" height="80"/>
         <image name="Layout 3" width="80" height="80"/>
         <image name="chevron" width="15" height="10"/>
         <image name="chevron landscape" width="10" height="15"/>
-        <image name="colorButton" width="30" height="30"/>
-        <image name="sepiaButton" width="30" height="30"/>
     </resources>
 </document>

@@ -16,9 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var chevron: UIButton!
     @IBOutlet weak var chevronLandscape: UIButton!
-    @IBOutlet weak var colorButton: UIButton!
-    @IBOutlet weak var blackWhiteButton: UIButton!
-    @IBOutlet weak var sepiaButton: UIButton!
+    @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var purpleButton: UIButton!
+    @IBOutlet weak var brownButton: UIButton!
     @IBOutlet var upSwipeGestureRecognizer: UISwipeGestureRecognizer!
     @IBOutlet var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
 
@@ -39,17 +39,6 @@ class ViewController: UIViewController {
         }  else if newCollection.verticalSizeClass == .regular {
             self.upSwipeGestureRecognizer.isEnabled = true
             self.leftSwipeGestureRecognizer.isEnabled = false } }
-            
-
-//        coordinator.animate(alongsideTransition: { [unowned self] _ in
-//            if newCollection.verticalSizeClass == .compact {
-//                self.upSwipeGestureRecognizer.isEnabled = false
-//            } else if newCollection.horizontalSizeClass == .regular {
-//                self.upSwipeGestureRecognizer.isEnabled = false
-//            }
-//        }) { [unowned self] _ in
-//            self.leftSwipeGestureRecognizer.isEnabled = false
-//        }
     
     
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
@@ -58,16 +47,18 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func didTapColorButton(_ sender: UIButton) {
-         imagesOrganizerView.applyColorFilter()
+    // BONUS change background color of the main View
+    
+    @IBAction func didTapBlackButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .black
     }
     
-    @IBAction func didTapBlackAndWhiteButton(_ sender: UIButton) {
-        imagesOrganizerView.applyBlackFilter()
+    @IBAction func didTapPurpleButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .purple
     }
     
-    @IBAction func didTapSepiaButton(_ sender: UIButton) {
-        imagesOrganizerView.applySepiaFilter()
+    @IBAction func didTapBrownButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .brown
     }
 
     
