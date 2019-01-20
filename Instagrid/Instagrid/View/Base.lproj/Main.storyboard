@@ -296,7 +296,7 @@
                                     <constraint firstAttribute="width" secondItem="MZZ-hV-N7e" secondAttribute="height" multiplier="1:1" id="kNj-R3-UEI"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="didTapColorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GkN-Cp-FUT"/>
+                                    <action selector="didTapBlackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STg-ey-d64"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-aE-n1J" userLabel="purple  Button">
@@ -306,7 +306,7 @@
                                     <constraint firstAttribute="width" secondItem="2MQ-aE-n1J" secondAttribute="height" multiplier="1:1" id="Aph-49-hsJ"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="didTapBlackAndWhiteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tgn-FR-165"/>
+                                    <action selector="didTapPurpleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwM-8g-rkD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-fb-MA4" userLabel="brown Button">
@@ -316,7 +316,7 @@
                                     <constraint firstAttribute="width" secondItem="YUj-fb-MA4" secondAttribute="height" multiplier="1:1" id="AXT-5O-bcd"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="didTapSepiaButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uLf-nf-pDv"/>
+                                    <action selector="didTapBrownButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T2I-Ne-Qfw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -722,14 +722,14 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="blackWhiteButton" destination="2MQ-aE-n1J" id="OmV-Km-iY7"/>
+                        <outlet property="blackButton" destination="MZZ-hV-N7e" id="gCN-6W-axC"/>
+                        <outlet property="brownButton" destination="YUj-fb-MA4" id="fqF-Tr-Lha"/>
                         <outlet property="chevron" destination="tsI-Yc-kxs" id="gVP-aJ-ORt"/>
                         <outlet property="chevronLandscape" destination="Xw0-Xe-vsu" id="fp5-z6-y9f"/>
-                        <outlet property="colorButton" destination="MZZ-hV-N7e" id="iJb-z3-5ok"/>
                         <outlet property="imagesOrganizerView" destination="JSg-88-9ah" id="6ac-x7-9jm"/>
                         <outlet property="leftSwipeGestureRecognizer" destination="ZY5-Wt-n8f" id="MXI-i7-DXR"/>
+                        <outlet property="purpleButton" destination="2MQ-aE-n1J" id="p3K-ah-DaM"/>
                         <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
-                        <outlet property="sepiaButton" destination="YUj-fb-MA4" id="Kbb-y5-KUb"/>
                         <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
                         <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
                         <outlet property="upSwipeGestureRecognizer" destination="bLD-nt-PUA" id="9Xq-MT-Za2"/>

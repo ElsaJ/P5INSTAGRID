@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreImage
 
 class ViewController: UIViewController {
     @IBOutlet weak var imagesOrganizerView: ImagesOrganizerView!
