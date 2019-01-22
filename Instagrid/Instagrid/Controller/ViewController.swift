@@ -9,18 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var imagesOrganizerView: ImagesOrganizerView!
-    @IBOutlet weak var squareButton: UIButton!
-    @IBOutlet weak var standardButton: UIButton!
-    @IBOutlet weak var reverseButton: UIButton!
-    @IBOutlet weak var chevron: UIButton!
-    @IBOutlet weak var chevronLandscape: UIButton!
-    @IBOutlet weak var blackButton: UIButton!
-    @IBOutlet weak var purpleButton: UIButton!
-    @IBOutlet weak var brownButton: UIButton!
-    @IBOutlet var upSwipeGestureRecognizer: UISwipeGestureRecognizer!
-    @IBOutlet var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
-
+    
+    // MARK: - outlets
+    @IBOutlet private weak var imagesOrganizerView: ImagesOrganizerView!
+    @IBOutlet private weak var squareButton: UIButton!
+    @IBOutlet private weak var standardButton: UIButton!
+    @IBOutlet private weak var reverseButton: UIButton!
+    @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
+    
+    // MARK: lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonsImage()
@@ -30,36 +27,16 @@ class ViewController: UIViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
         if newCollection.verticalSizeClass == .compact {
-            self.upSwipeGestureRecognizer.isEnabled = false
-            self.leftSwipeGestureRecognizer.isEnabled = true
-        } else if newCollection.horizontalSizeClass == . regular {
-            self.upSwipeGestureRecognizer.isEnabled = false
-            self.leftSwipeGestureRecognizer.isEnabled = true
-        }  else if newCollection.verticalSizeClass == .regular {
-            self.upSwipeGestureRecognizer.isEnabled = true
-            self.leftSwipeGestureRecognizer.isEnabled = false } }
+            self.swipeGestureRecognizer.direction = .left
+        }  else {
+            self.swipeGestureRecognizer.direction = .up
+        }}
     
-    
+    // MARK: Actions
     @IBAction func swipeHandler(sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
-            sendImageToActivityController()
-        }
+            sendImageToActivityController() }
     }
-    
-    // BONUS change background color of the main View
-    
-    @IBAction func didTapBlackButton(_ sender: UIButton) {
-        imagesOrganizerView.backgroundColor = .black
-    }
-    
-    @IBAction func didTapPurpleButton(_ sender: UIButton) {
-        imagesOrganizerView.backgroundColor = .purple
-    }
-    
-    @IBAction func didTapBrownButton(_ sender: UIButton) {
-        imagesOrganizerView.backgroundColor = .brown
-    }
-
     
     @IBAction func didTapStandardButton(_ sender: UIButton) {
         imagesOrganizerView.style = .standard
@@ -82,6 +59,22 @@ class ViewController: UIViewController {
         squareButton.isSelected = true
     }
     
+    // BONUS change background color of the main View
+    
+    @IBAction func didTapBlackButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .black
+    }
+    
+    @IBAction func didTapPurpleButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .purple
+    }
+    
+    @IBAction func didTapBrownButton(_ sender: UIButton) {
+        imagesOrganizerView.backgroundColor = .brown
+    }
+    
+    // MARK: private
+    
     private func setButtonsImage() {
         standardButton.setImage(UIImage(named: "Selected"), for: .selected)
         reverseButton.setImage(UIImage(named: "Selected"), for: .selected)
@@ -101,8 +94,8 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDelegate {
-    
+// MARK: - Extensions
+extension ViewController: ImagesOrganizerViewDelegate {
     func getImageForShape(_ index: Int) {
         switch index {
         case 1: imagesOrganizerView.firstButton.isSelected = true
@@ -122,8 +115,8 @@ extension ViewController: ImagesOrganizerViewDelegate, UINavigationControllerDel
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate {
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         imagesOrganizerView.updateImages(image: image)
         dismiss(animated:true, completion: nil)

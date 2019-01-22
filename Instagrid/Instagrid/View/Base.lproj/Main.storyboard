@@ -717,33 +717,21 @@
                             </mask>
                         </variation>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="bLD-nt-PUA" appends="YES" id="nlQ-sa-QhC"/>
-                            <outletCollection property="gestureRecognizers" destination="ZY5-Wt-n8f" appends="YES" id="b8h-zg-du1"/>
+                            <outletCollection property="gestureRecognizers" destination="jLM-Gi-li6" appends="YES" id="dYr-w7-4V6"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="blackButton" destination="MZZ-hV-N7e" id="gCN-6W-axC"/>
-                        <outlet property="brownButton" destination="YUj-fb-MA4" id="fqF-Tr-Lha"/>
-                        <outlet property="chevron" destination="tsI-Yc-kxs" id="gVP-aJ-ORt"/>
-                        <outlet property="chevronLandscape" destination="Xw0-Xe-vsu" id="fp5-z6-y9f"/>
                         <outlet property="imagesOrganizerView" destination="JSg-88-9ah" id="6ac-x7-9jm"/>
-                        <outlet property="leftSwipeGestureRecognizer" destination="ZY5-Wt-n8f" id="MXI-i7-DXR"/>
-                        <outlet property="purpleButton" destination="2MQ-aE-n1J" id="p3K-ah-DaM"/>
                         <outlet property="reverseButton" destination="Vfq-vG-WTc" id="2yt-7f-QOr"/>
                         <outlet property="squareButton" destination="3qd-pv-DWR" id="lxd-QO-WZq"/>
                         <outlet property="standardButton" destination="Azs-9y-15N" id="Trr-16-ZcS"/>
-                        <outlet property="upSwipeGestureRecognizer" destination="bLD-nt-PUA" id="9Xq-MT-Za2"/>
+                        <outlet property="swipeGestureRecognizer" destination="jLM-Gi-li6" id="4Kc-P3-SNf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="bLD-nt-PUA">
+                <swipeGestureRecognizer direction="right" id="jLM-Gi-li6">
                     <connections>
-                        <action selector="swipeHandlerWithSender:" destination="BYZ-38-t0r" id="PjE-TK-fCn"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="ZY5-Wt-n8f">
-                    <connections>
-                        <action selector="swipeHandlerWithSender:" destination="BYZ-38-t0r" id="17y-Xv-byk"/>
+                        <action selector="swipeHandlerWithSender:" destination="BYZ-38-t0r" id="7RN-Xj-5Vq"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
