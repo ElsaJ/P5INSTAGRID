@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var standardButton: UIButton!
     @IBOutlet private weak var reverseButton: UIButton!
     @IBOutlet private var swipeGestureRecognizer: UISwipeGestureRecognizer!
+    var selectedButtonTag: Int?
     
     // MARK: lifecycle
     override func viewDidLoad() {
@@ -96,15 +97,9 @@ class ViewController: UIViewController {
 
 // MARK: - Extensions
 extension ViewController: ImagesOrganizerViewDelegate {
-    func getImageForShape(_ index: Int) {
-        switch index {
-        case 1: imagesOrganizerView.firstButton.isSelected = true
-        case 2: imagesOrganizerView.secondButton.isSelected = true
-        case 3: imagesOrganizerView.thirdButton.isSelected = true
-        case 4: imagesOrganizerView.fourthButton.isSelected = true
-        default: break
-        }
-        
+    func imagesOrganizerView(_view: ImagesOrganizerView, didTapButton tag: Int) {
+       selectedButtonTag = tag
+       print(tag)
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -116,10 +111,13 @@ extension ViewController: ImagesOrganizerViewDelegate {
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        imagesOrganizerView.updateImages(image: image)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imagesOrganizerView.updateImages(image: image, tag: selectedButtonTag!) }
         dismiss(animated:true, completion: nil)
     }
 }
+
+
+
 

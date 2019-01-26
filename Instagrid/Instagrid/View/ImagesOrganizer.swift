@@ -10,20 +10,19 @@ import UIKit
 
 /// protocol to instaure the delegation
 protocol ImagesOrganizerViewDelegate: class {
-    func getImageForShape(_ index: Int)
+    func imagesOrganizerView(_view: ImagesOrganizerView, didTapButton tag: Int)
 }
 
 /// class to organize images in the main view
 class ImagesOrganizerView: UIView {
+    weak var delegate: ImagesOrganizerViewDelegate?
     @IBOutlet private var firstLine: UIStackView!
     @IBOutlet private var secondLine: UIStackView!
-    weak var delegate: ImagesOrganizerViewDelegate?
-    let firstButton = UIButton()
-    let secondButton = UIButton()
-    let thirdButton = UIButton()
-    let fourthButton = UIButton()
-    var position = 0
-    
+    private let firstButton = UIButton()
+    private let secondButton = UIButton()
+    private let thirdButton = UIButton()
+    private let fourthButton = UIButton()
+   
     /// enum for the three different styles
     enum Style {
         case standard, reverse, square
@@ -45,36 +44,38 @@ class ImagesOrganizerView: UIView {
     }
     
     /// action's func to recognize which button is tapped
-    @IBAction func shapeDidTap(_ sender: UIButton) {
-        switch sender {
-        case firstButton: position = 1
-        case secondButton: position = 2
-        case thirdButton: position = 3
-        case fourthButton: position = 4
+    @IBAction func didTapButton(_tag: Int) {
+        switch tag {
+        case firstButton.tag: tag = 1
+        case secondButton.tag: tag = 2
+        case thirdButton.tag: tag = 3
+        case fourthButton.tag: tag = 4
         default: break
         }
-        getImageForShape(position)
+        delegate?.imagesOrganizerView(_view: self, didTapButton: tag)
     }
     
-    /// delegate func to retrieve images for each button
-    func getImageForShape(_ index: Int) {
-        position = index
-        delegate?.getImageForShape(position)
-    }
     
     /// func to update images on each button
-    func updateImages(image: UIImage) {
-        if position == 1 {
-            firstButton.setImage(image, for: .selected)
-        } else if position == 2 {
-            secondButton.setImage(image, for: .selected)
-        } else if position == 3 {
-            thirdButton.setImage(image, for: .selected)
-        } else if position == 4 {
-            fourthButton.setImage(image, for: .selected)
+    func updateImages(image: UIImage, tag: Int) {
+         setButtonTags()
+        if tag == 1 {
+            firstButton.setImage(image, for: .normal)
+        } else if tag == 2 {
+            secondButton.setImage(image, for: .normal)
+        } else if tag == 3 {
+            thirdButton.setImage(image, for: .normal)
+        } else if tag == 4 {
+            fourthButton.setImage(image, for: .normal)
         }
     }
     
+    private func setButtonTags() {
+        firstButton.tag = 1
+        secondButton.tag = 2
+        thirdButton.tag = 3
+        fourthButton.tag = 4
+    }
     
     /// private func to manage the three different styles in the main view
     private func setStyle(_ style: Style) {
@@ -123,10 +124,10 @@ class ImagesOrganizerView: UIView {
     
     /// private func to set action for each button
     private func setActionForButtons() {
-        firstButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
-        secondButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
-        thirdButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
-        fourthButton.addTarget(self, action: #selector(shapeDidTap), for: .touchUpInside)
+        firstButton.addTarget(self, action: #selector(didTapButton(_tag:)), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(didTapButton(_tag:)), for: .touchUpInside)
+        thirdButton.addTarget(self, action: #selector(didTapButton(_tag:)), for: .touchUpInside)
+        fourthButton.addTarget(self, action: #selector(didTapButton(_tag:)), for: .touchUpInside)
     }
 }
 
